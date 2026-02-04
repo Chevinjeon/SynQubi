@@ -1,13 +1,18 @@
 # SynQubi
 
-Quantum-inspired portfolio optimization experiments using QAOA and QUBO
-formulations, implemented in Jupyter notebooks.
+SYNQUBI is a modular, risk-aware portfolio optimization framework that treats
+optimization as a constrained proposal mechanism inside an agentic pipeline.
+The project implements a reproducible QUBO/QAOA case study and benchmarks
+QAOA sampling against exhaustive brute-force search on a small asset universe.
 
-## Notebooks
+Paper title: **SYNQUBI: A Quantum-Optimized Multi Agent for Risk-Aware Financial
+Decision-Making**
+
+## Repository Structure
 
 - `synqubi_portfolio_optimization.ipynb`  
   End-to-end workflow: data download, QUBO/Ising setup, QAOA sampling,
-  brute-force comparison, and visualization.
+  brute-force comparison, and visualizations.
 
 - `synqubi_qubo_tests.ipynb`  
   Additional experiments and validation for QUBO construction and metrics.
@@ -16,16 +21,27 @@ formulations, implemented in Jupyter notebooks.
 
 1. Open `synqubi_portfolio_optimization.ipynb`.
 2. Run the install cell to pull required packages.
-3. Run the notebook cells in order to generate results and plots.
+3. Run the notebook cells in order.
 
 Notes:
-- The notebook downloads market data via `yfinance`.
+- Market data is downloaded via `yfinance`.
 - Plotly PNG export uses `kaleido`.
+- The QAOA sampling cell is the slowest step.
 
-## Output
+## Outputs
 
-The notebook saves plots to:
+Plots are saved to:
 `/Users/chevinjeon/Library/Mobile Documents/com~apple~CloudDocs/Documents/QAOA/`
 
-If you want a different output folder, update the `output_path` in the Plotly
-cell.
+To change the location, update `output_path` in the Plotly cell.
+
+## Reproducibility Tips
+
+- QAOA outputs vary slightly due to stochastic sampling and optimizer state.
+- For faster restarts, cache outputs after sampling and reload them in plot-only
+  cells.
+
+## Citation
+
+If you use this work, please cite the SynQubi paper or link to the repo:
+`https://github.com/Chevinjeon/SynQubi`.
